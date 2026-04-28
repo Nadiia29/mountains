@@ -45,7 +45,6 @@ window.addEventListener('resize', () => {
 	}
 });
 
-// --- ВИПРАВЛЕНО: прибрано дублювання scroll обробника ---
 const clouds = document.querySelector('.layer-clouds');
 const birds = document.querySelector('.layer-birds');
 
