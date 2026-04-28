@@ -1,0 +1,357 @@
+@media (max-width: 1200px) {
+	.hero-content {
+		padding-left: 15px;
+	}
+	.section-hike {
+		padding-left: 20px;
+	}
+	.section-hike__mountains {
+		background-size: auto 90%;
+		height: 350px;
+	}
+
+	.section-hike__man {
+		background-size: cover;
+		bottom: 50px;
+		width: 650px;
+		height: 716px;
+	}
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1024px) {
+	.hero-content {
+		padding-left: 15px;
+	}
+
+	.layer-mountain {
+		background-size: auto 90%;
+		top: 40px;
+	}
+
+	.layer-clouds {
+		background-size: auto 70%;
+	}
+
+	.layer-birds {
+		background-size: 218px 93px;
+		background-position: 40% 20%;
+	}
+
+	.hero-content h1 {
+		font-size: 56px;
+	}
+
+	.hero-content p {
+		font-size: 22px;
+	}
+
+	.section-hike__mountains {
+		background-size: auto 90%;
+		height: 350px;
+	}
+
+	.section-hike__man {
+		background-size: cover;
+		bottom: 50px;
+		width: 500px;
+		height: 550px;
+	}
+
+	.section-hike__content {
+		position: relative;
+		max-width: 450px;
+		margin-bottom: 300px;
+	}
+
+	.section-hike__title {
+		font-size: 42px;
+	}
+
+	.section-hike__title::after {
+		left: 9%;
+	}
+
+	.about-content__inner {
+		margin-left: 50px;
+		gap: 60px;
+	}
+
+	.about-content__description {
+		width: 100%;
+	}
+}
+
+/* =========================
+       MOBILE
+    ========================= */
+
+@media (max-width: 768px) {
+	.header {
+		position: fixed;
+		background: rgba(240, 244, 248, 0.95);
+		backdrop-filter: blur(5px);
+	}
+	.header__nav {
+		gap: 20px;
+	}
+
+	.nav-links {
+		position: absolute;
+		top: 74px;
+		right: 0;
+		background: white;
+		flex-direction: column;
+		width: 220px;
+		padding: 20px;
+		gap: 20px;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+		transform: translateX(120%);
+		transition: 0.3s ease;
+		display: flex;
+	}
+
+	.nav-links.nav-active {
+		transform: translateX(0);
+	}
+
+	.book-btn {
+		display: none;
+	}
+
+	.burger {
+		display: flex;
+	}
+
+	.mobile-book {
+		display: block;
+	}
+
+	.book-btn-mobile {
+		display: inline-block;
+		padding: 12px 28px;
+		background: var(--color-dark);
+		color: var(--color-light) !important;
+		font-size: 14px;
+		font-weight: 500;
+		border-radius: 4px;
+		transition: transform 0.3s, opacity 0.3s;
+		letter-spacing: 0.5px;
+		width: 100%;
+		text-align: center;
+		text-decoration: none;
+	}
+
+	.book-btn-mobile:hover {
+		transform: translateY(-2px);
+		opacity: 0.9;
+	}
+
+	/* HERO */
+
+	.layer-mountain {
+		background-size: auto 80%;
+	}
+
+	.layer-clouds {
+		top: 250px;
+		background-size: auto 60%;
+	}
+
+	.layer-birds {
+		background-size: 208px 90px;
+		background-position: 60% 25%;
+	}
+
+	.hero-content h1 {
+		font-size: 42px;
+	}
+
+	.hero-content p {
+		font-size: 18px;
+	}
+
+	.layer-circle {
+		background-size: 350px 350px;
+		background-position: 40% 40%;
+	}
+
+	/* HIKE */
+
+	.section-hike__content {
+		max-width: 100%;
+		margin-bottom: 200px;
+	}
+
+	.section-hike__man {
+		background-size: auto 80%;
+		width: 300px;
+		height: 500px;
+	}
+
+	.section-hike__title {
+		font-size: 26px;
+		margin-bottom: 30px;
+	}
+
+	.section-hike__title::after {
+		left: 12%;
+		height: 7px;
+	}
+
+	.section-meta__text {
+		font-size: 16px;
+	}
+
+	/* SERVICES */
+
+	.section-services__inner {
+		flex-direction: column;
+		gap: 60px;
+		align-items: center;
+	}
+
+	.section-services__items img {
+		width: 180px;
+		height: auto;
+	}
+
+	/* ABOUT */
+
+	.about-content__inner {
+		flex-direction: column;
+	}
+
+	.about-content__blocks {
+		flex-direction: column;
+	}
+
+	/* FOOTER */
+
+	.container-footer {
+		flex-direction: column;
+		gap: 30px;
+		align-items: center;
+		margin-top: 150px;
+	}
+
+	.nav-links__footer {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+}
+
+/* =========================
+       SMALL MOBILE
+    ========================= */
+
+@media (max-width: 480px) {
+	.hero-bg {
+		width: 100%;
+	}
+
+	.hero-content h1 {
+		font-size: 32px;
+	}
+
+	.hero-content p {
+		font-size: 16px;
+	}
+
+	/* HIKE */
+	.section-hike {
+		padding-top: 80px;
+		min-height: auto;
+	}
+
+	.section-hike__content {
+		margin-bottom: 280px;
+	}
+
+	.section-hike__title {
+		font-size: 26px;
+		margin-bottom: 30px;
+	}
+
+	.section-hike__content {
+		max-width: 100%;
+		margin-bottom: 280px;
+		font-size: 12px;
+	}
+
+	.section-hike__man {
+		background-size: auto 60%;
+		width: 280px;
+		height: 450px;
+		bottom: 80px;
+		right: -20px;
+	}
+
+	.section-hike__title::after {
+		left: 13%;
+		height: 6px;
+	}
+
+	.section-hike__mountains {
+		background-size: auto 70%;
+		height: 300px;
+	}
+
+	.section-hike__birds {
+		right: 15%;
+		top: 3%;
+		width: min(180px, 15vw);
+		height: min(80px, 8vw);
+	}
+
+	.section-meta__text {
+		font-size: 16px;
+	}
+
+	/* SERVICES */
+	.section-services__title {
+		font-size: 36px;
+	}
+
+	/* ABOUT */
+	.about-content__title {
+		font-size: 32px;
+	}
+
+	.about-content__inner {
+		flex-direction: column;
+		margin-left: 10px;
+	}
+
+	.about-content__description {
+		font-size: 14px;
+	}
+
+	.about-content__units {
+		gap: 30px;
+	}
+
+	/* Modal */
+	.modal__content {
+		padding: 20px 15px;
+		width: 95%;
+	}
+
+	.modal__content h2 {
+		font-size: 20px;
+		margin-bottom: 15px;
+	}
+
+	.modal__form input,
+	.modal__form button {
+		padding: 10px;
+		font-size: 14px;
+	}
+
+	body.modal-open {
+		overflow: hidden;
+	}
+}

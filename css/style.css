@@ -1,0 +1,865 @@
+/* Vars */
+:root {
+	--main-font: 'Roboto', sans-serif;
+	--color-dark: #000;
+	--color-light: #fff;
+	--color-accent-1: #8b57c2;
+	--color-accent-2: #530030;
+	--color-accent-3: #696969;
+	--color-accent-4: #ffd2bf;
+
+	--section-dark: #000;
+	--section-light: #fff;
+
+	/* Fonts */
+	--font-size-xs: 12px;
+	--font-size-sm: 14px;
+	--font-size-base: 16px;
+	--font-size-lg: 18px;
+	--font-size-xl: 20px;
+}
+
+/* Base */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+body {
+	min-width: 320px;
+	overflow-x: hidden;
+	font-family: var(--main-font);
+	min-height: 100vh;
+}
+
+/* Common */
+.container {
+	max-width: 1270px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+/* Wrapper */
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+/* btn close */
+.modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	justify-content: center;
+	align-items: center;
+	transition: background-color 0.3s ease;
+	z-index: 10000;
+}
+
+.modal.active {
+	display: flex;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal__content {
+	position: relative;
+	background: white;
+	padding: 25px 20px;
+	margin: 15px;
+	border-radius: 12px;
+	width: 90%;
+	max-width: 400px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+	animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+	0% {
+		opacity: 0;
+		transform: scale(0.95) translateY(-20px);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+	}
+}
+
+@keyframes modalFadeOut {
+	0% {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(0.95) translateY(-20px);
+	}
+}
+
+.modal.active .modal__content {
+	animation: modalFadeIn 0.3s cubic-bezier(0.34, 1.2, 0.64, 1);
+}
+
+.modal .modal__content {
+	animation: modalFadeOut 0.2s ease forwards;
+}
+
+.modal__close {
+	position: absolute;
+	top: 12px;
+	right: 18px;
+	font-size: 28px;
+	cursor: pointer;
+	color: #666;
+	transition: color 0.3s;
+}
+
+.modal__close:hover {
+	color: #000;
+}
+
+.modal__content h2 {
+	font-size: 24px;
+	margin-bottom: 20px;
+	color: #333;
+	text-align: center;
+}
+
+/* form */
+.modal__form {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.modal__form input {
+	padding: 12px;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	font-size: 16px;
+	outline: none;
+	transition: border-color 0.3s;
+}
+
+.modal__form input:focus {
+	border-color: #8b57c2;
+}
+
+.modal__form button {
+	padding: 12px;
+	background: black;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: 500;
+	transition: opacity 0.3s, transform 0.2s;
+}
+
+.modal__form button:hover {
+	opacity: 0.9;
+	transform: translateY(-1px);
+}
+
+/* Header */
+.header {
+	position: fixed;
+	padding: 10px 0;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: rgba(240, 244, 248, 0.489);
+	z-index: 20;
+}
+
+.header__inner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo__wrapper {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.logo {
+	width: 74px;
+	height: 54px;
+}
+
+.logo__inner {
+	display: flex;
+	flex-direction: column;
+}
+
+.logo__title {
+	font-size: 18px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: var(--color-dark);
+}
+
+.logo__subtitle {
+	font-size: 10px;
+	font-weight: 400;
+	letter-spacing: 0.5px;
+	text-align: center;
+	color: var(--color-dark);
+}
+
+/* Navigation */
+.header__nav {
+	display: flex;
+	align-items: center;
+	gap: 50px;
+}
+
+.nav-links {
+	display: flex;
+	gap: 40px;
+	align-items: center;
+}
+
+.nav-links a {
+	font-size: 14px;
+	font-weight: 500;
+	color: var(--color-dark);
+	transition: opacity 0.3s;
+	letter-spacing: 0.5px;
+}
+
+.nav-links a:hover {
+	opacity: 0.7;
+}
+
+.mobile-book {
+	display: none;
+}
+
+.book-btn {
+	padding: 12px 28px;
+	background: var(--color-dark);
+	color: var(--color-light);
+	font-size: 14px;
+	font-weight: 500;
+	border-radius: 4px;
+	transition: transform 0.3s, opacity 0.3s;
+	letter-spacing: 0.5px;
+}
+
+.book-btn:hover {
+	transform: translateY(-2px);
+	opacity: 0.9;
+}
+
+.burger {
+	display: none;
+	flex-direction: column;
+	gap: 5px;
+	cursor: pointer;
+}
+
+.burger span {
+	width: 25px;
+	height: 3px;
+	background: var(--color-dark);
+	border-radius: 2px;
+	transition: all 0.3s;
+}
+
+.burger.active span:nth-child(1) {
+	transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active span:nth-child(2) {
+	opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+	transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Hero */
+.hero {
+	position: relative;
+	min-height: 100vh;
+	height: 800px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+	overflow: hidden;
+}
+
+.hero-bg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+}
+
+.hero-content {
+	position: relative;
+	max-width: 600px;
+	margin-left: 0;
+	z-index: 10;
+}
+
+.hero-content h1 {
+	font-size: 72px;
+	font-weight: 900;
+	line-height: 1.1;
+	color: var(--color-dark);
+	text-transform: uppercase;
+	margin-bottom: 20px;
+}
+
+.hero-content p {
+	font-size: 29px;
+	font-weight: 400;
+	color: #333;
+	margin-bottom: 35px;
+}
+
+.cta-btn {
+	display: inline-block;
+	padding: 0;
+	font-size: 16px;
+	font-weight: 500;
+	color: var(--color-dark);
+	border-bottom: 4px solid var(--color-dark);
+	transition: all 0.3s;
+	padding-bottom: 3px;
+}
+
+.cta-btn:hover {
+	opacity: 0.7;
+	transform: translateX(5px);
+}
+
+.layer {
+	position: absolute;
+	inset: 0;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	pointer-events: none;
+}
+
+.layer-sky {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url('../img/clouds_bg.svg');
+	background-size: cover;
+	background-position: center;
+	z-index: 1;
+}
+
+.layer-mountain {
+	position: absolute;
+	top: 50px;
+	left: 0;
+	background-image: url('../img/mountains.png');
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center bottom;
+	z-index: 2;
+}
+
+.layer-clouds {
+	position: absolute;
+	top: 350px;
+	width: 100%;
+	height: 100%;
+	background-image: url('../img/clouds.svg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	opacity: 0.9;
+	z-index: 6;
+}
+
+.layer-circle {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url('../img/circle.svg');
+	background-size: 400px 400px;
+	background-position: 30% 30%;
+	background-repeat: no-repeat;
+	z-index: 3;
+}
+.layer-birds {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url('../img/birds.svg');
+	background-size: 218px 93px;
+	background-position: 46% 25%;
+	z-index: 4;
+}
+
+/* Main */
+.main {
+	flex: 1;
+}
+
+/* ---------section- Hike ------------ */
+.section-hike {
+	position: relative;
+	max-height: 930px;
+	overflow-x: clip;
+	padding-top: 120px;
+	display: flex;
+	flex-direction: column;
+}
+
+.section-hike__bg {
+	position: absolute;
+	background: var(--color-accent-4);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+}
+
+.section-hike__mountains {
+	position: absolute;
+	background-image: url('../img/mountain-bottom.svg');
+	background-repeat: no-repeat;
+	background-position: bottom center;
+	background-size: cover;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 400px;
+	z-index: 2;
+}
+
+.section-hike__man {
+	position: absolute;
+	background-image: url('../img/man.svg');
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center bottom;
+	right: 0;
+	bottom: 160px;
+	width: 700px;
+	height: 716px;
+	z-index: 1;
+}
+
+.section-hike__birds {
+	position: absolute;
+	background-image: url('../img/birds.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: min(220px, 20vw);
+	height: min(100px, 10vw);
+	left: auto;
+	right: 25%;
+	top: 7%;
+	z-index: 3;
+}
+
+.section-hike__content {
+	position: relative;
+	height: 512px;
+	max-width: 570px;
+	margin-bottom: 330px;
+	z-index: 6;
+}
+
+.section-hike__title {
+	font-size: 56px;
+	font-weight: 900;
+	margin-bottom: 60px;
+	position: relative;
+	display: inline-block;
+}
+
+.section-hike__title::after {
+	content: '';
+	position: absolute;
+	bottom: -16px;
+	left: 6%;
+	width: 65px;
+	height: 8px;
+	background: var(--color-dark);
+	transform: translateX(-50%);
+}
+
+.section-meta {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+	margin-bottom: 20px;
+}
+
+.section-meta__img {
+	width: 24px;
+	height: 24px;
+}
+
+.section-meta__discr {
+	display: flex;
+	gap: 5px;
+}
+
+.section-meta__discr > div {
+	color: #696969;
+}
+
+.section-meta__text {
+	font-size: 18px;
+}
+
+/* ---- section-services -------------*/
+
+.section-services {
+	position: relative;
+	overflow-x: clip;
+	display: flex;
+	align-items: center;
+	padding: 10px 0 100px 0;
+}
+
+.layer-bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--color-dark);
+	z-index: 1;
+}
+
+.layer-map {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url('../img/map-pattren.svg');
+	z-index: 2;
+}
+
+.layer-mount {
+	position: absolute;
+	background-image: url('../img/mountains_bot.svg');
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+	top: auto;
+	left: 0;
+	width: 100%;
+	height: 500px;
+	z-index: 3;
+}
+
+.services-content {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 80px 20px;
+	color: var(--color-light);
+	z-index: 4;
+}
+
+.section-services__title {
+	font-size: 50px;
+	font-weight: bold;
+	margin: 0 0 40px 0;
+}
+
+.section-services__subtitle {
+	font-size: 19px;
+	max-width: 640px;
+	text-align: center;
+	margin-bottom: 90px;
+}
+
+.section-services__inner {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 200px;
+}
+
+.section-services__items {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.section-services__items > img {
+	width: 239px;
+	height: 239px;
+}
+
+.section-services__item {
+	font-size: 22px;
+	text-align: center;
+	margin-top: 50px;
+}
+
+/* --------section- About --------*/
+.section-about {
+	position: relative;
+	min-height: 100vh;
+	overflow-x: clip;
+	display: flex;
+	padding: 80px 20px;
+	align-items: center;
+}
+
+.section-about__bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--color-dark);
+	z-index: 0;
+}
+
+.layer-backgr {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--color-dark);
+	z-index: 1;
+}
+
+.layer-mount_bot {
+	position: absolute;
+	background-image: url('../img/plants.svg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	top: auto;
+	left: 0;
+	width: 100%;
+	height: 50%;
+	min-height: 350px;
+	z-index: 2;
+}
+
+.section-about__content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 100px 20px;
+	color: var(--color-light);
+	z-index: 3;
+}
+
+.about-content__inner {
+	display: flex;
+	gap: 120px;
+	flex-wrap: wrap;
+}
+
+.about-content__title {
+	position: relative;
+	display: inline-block;
+	margin-bottom: 90px;
+	padding-bottom: 22px;
+	font-size: 44px;
+	font-weight: 700;
+}
+
+.about-content__title::after {
+	content: '';
+	position: absolute;
+	bottom: -16px;
+	left: 0;
+	width: 65px;
+	height: 8px;
+	background: var(--color-accent-4);
+}
+
+.about-content__blocks {
+	display: flex;
+	gap: 50px;
+}
+
+.about-content__items > img {
+	width: 69px;
+	height: 69px;
+	border-radius: 50%;
+}
+
+.about-content__items {
+	display: flex;
+	gap: 18px;
+}
+
+.about-content__panel {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.about-content__name {
+	font-size: 22px;
+}
+
+.about-content__position {
+	font-size: 20px;
+	color: var(--color-accent-3);
+}
+
+.about-content__module {
+	width: 278px;
+}
+
+.about-content__module > blockquote {
+	margin-top: 32px;
+}
+
+.about-content__description {
+	width: 452px;
+	margin-bottom: 48px;
+}
+
+.about-content__units {
+	display: flex;
+	gap: 48px;
+}
+
+.about-content__member {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	font-size: 16px;
+}
+
+.about-content__distance,
+.about-content__time {
+	color: var(--color-accent-3);
+}
+
+/* Footer */
+.footer {
+	background: var(--color-accent-2);
+	color: var(--color-accent-4);
+	padding: 50px 0;
+	text-align: center;
+}
+
+.container-footer {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 40px;
+	max-width: 1235px;
+	flex-wrap: wrap;
+}
+
+.container-footer::after {
+	content: '';
+	position: absolute;
+	justify-content: center;
+	bottom: -25px;
+	max-width: 1210px;
+	width: 100%;
+	height: 1px;
+	background: color-mix(in srgb, #ffd2bf 45%, black 65%);
+}
+
+.logo__inner-footer {
+	display: flex;
+	flex-direction: column;
+}
+
+.logo__title-footer {
+	font-size: 18px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: var(--color-accent-4);
+}
+
+.logo__subtitle-footer {
+	font-size: 10px;
+	font-weight: 400;
+	letter-spacing: 0.5px;
+	text-align: center;
+	color: color-mix(in srgb, #ffd2bf 60%, black 40%);
+}
+
+.nav-links__footer {
+	display: flex;
+	gap: 50px;
+	align-items: center;
+	margin-top: 15px;
+}
+
+.nav-links__footer a {
+	font-size: 16px;
+	font-weight: 500;
+	color: var(--color-accent-4);
+	transition: opacity 0.3s;
+	letter-spacing: 0.5px;
+}
+
+.nav-links__footer a:hover {
+	opacity: 0.7;
+}
+
+.footer__design {
+	font-size: 18px;
+	color: var(--color-light);
+}
+
+.footer__design > strong {
+	color: #fe6c40;
+}
+
+/* Кнопка BOOK NOW в футері */
+.nav-links__footer .book-btn {
+	display: inline-block;
+	padding: 12px 28px;
+	background: var(--color-accent-4);
+	color: var(--color-dark);
+	font-size: 14px;
+	font-weight: 500;
+	border-radius: 4px;
+	transition: all 0.3s;
+	letter-spacing: 0.5px;
+	text-decoration: none;
+}
+
+.nav-links__footer .book-btn:hover {
+	transform: translateY(-2px);
+	opacity: 0.9;
+	background: var(--color-light);
+}
