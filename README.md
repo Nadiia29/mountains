@@ -1,8 +1,11 @@
 # ⛰️ High Peaks - Sports And Nature
 
-[![GitHub contributors](https://img.shields.io/github/contributors/Nadiia29/mountains)](https://github.com/Nadiia29/mountains/graphs/contributors)
-[![GitHub last commit](https://img.shields.io/github/last-commit/Nadiia29/mountains)](https://github.com/Nadiia29/mountains)
-[![GitHub language count](https://img.shields.io/github/languages/count/Nadiia29/mountains)](https://github.com/Nadiia29/mountains)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Flexbox](https://img.shields.io/badge/Flexbox-FFD43B?style=for-the-badge&logo=css3&logoColor=blue)
+![Grid](https://img.shields.io/badge/Grid-00A859?style=for-the-badge&logo=css3&logoColor=white)
+![GitHub Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)
 
 **High Peaks** - це сучасний лендінг, створений для туристичного та спортивного бренду. Він покликаний надихати користувачів на активний відпочинок у горах, пропонуючи зручний інтерфейс для знайомства з турами та бронювання.
 
